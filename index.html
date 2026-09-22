@@ -1,0 +1,949 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti 💛</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+
+            margin: 0;
+            padding: 0;
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+            font-family: Arial, sans-serif;
+        }
+
+
+        body {
+
+            background: #fff4b8;
+        }
+
+
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        #inicio {
+
+            width: 100%;
+            height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            background: #fff4b8;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+
+        .mensaje {
+
+            padding: 30px;
+        }
+
+
+        .mensaje h1 {
+
+            font-size: 45px;
+
+            color: #d99b00;
+
+            margin-bottom: 20px;
+        }
+
+
+        .mensaje p {
+
+            font-size: 22px;
+
+            color: #7a5a00;
+
+            margin-bottom: 35px;
+        }
+
+
+        .boton {
+
+            border: none;
+
+            background: #f4c400;
+
+            color: white;
+
+            padding: 15px 30px;
+
+            border-radius: 30px;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.15);
+        }
+
+
+        .boton:hover {
+
+            transform: scale(1.05);
+        }
+
+
+
+        /* =========================
+           GALERÍA
+        ========================= */
+
+        #galeria {
+
+            display: none;
+
+            width: 100%;
+            height: 100vh;
+
+            background: #fff4b8;
+
+            position: relative;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .foto {
+
+            position: absolute;
+
+            max-width: 100%;
+            max-height: 100%;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+
+            opacity: 0;
+
+            transition: opacity 1s ease;
+        }
+
+
+        .foto.activa {
+
+            opacity: 1;
+        }
+
+
+
+        /* =========================
+           BOTÓN MÚSICA
+        ========================= */
+
+        #botonMusica {
+
+            position: fixed;
+
+            top: 20px;
+            right: 20px;
+
+            z-index: 1000;
+
+            border: none;
+
+            background: rgba(255,255,255,0.95);
+
+            color: #8a6500;
+
+            padding: 12px 18px;
+
+            border-radius: 25px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 3px 10px rgba(0,0,0,0.15);
+        }
+
+
+
+        /* =========================
+           BOTÓN FINAL
+        ========================= */
+
+        #botonSiguiente {
+
+            display: none;
+
+            position: fixed;
+
+            top: 50%;
+            left: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            z-index: 2000;
+
+            border: none;
+
+            background: #f4c400;
+
+            color: white;
+
+            padding: 30px 55px;
+
+            border-radius: 60px;
+
+            font-size: 30px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,0.30);
+
+            animation:
+                aparecerBoton 1s ease;
+        }
+
+
+        #botonSiguiente:hover {
+
+            transform:
+                translate(-50%, -50%)
+                scale(1.10);
+        }
+
+
+
+        @keyframes aparecerBoton {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(0.2);
+            }
+
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(1);
+            }
+        }
+
+
+
+        /* =========================
+           FLORES
+        ========================= */
+
+        .flor {
+
+            position: fixed;
+
+            top: -80px;
+
+            z-index: 1500;
+
+            pointer-events: none;
+
+            user-select: none;
+
+            animation:
+                caer linear forwards;
+        }
+
+
+
+        @keyframes caer {
+
+            0% {
+
+                transform:
+                    translateY(-100px)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+
+            100% {
+
+                transform:
+                    translateY(115vh)
+                    rotate(720deg);
+
+                opacity: 1;
+            }
+        }
+
+
+
+        /* =========================
+           EFECTO BRILLO
+        ========================= */
+
+        .brillo {
+
+            position: fixed;
+
+            pointer-events: none;
+
+            z-index: 1490;
+
+            animation:
+                caerBrillo linear forwards;
+        }
+
+
+        @keyframes caerBrillo {
+
+            0% {
+
+                transform:
+                    translateY(-50px)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+
+            100% {
+
+                transform:
+                    translateY(110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+
+    <!-- =========================
+         INTRO
+    ========================= -->
+
+    <section id="inicio">
+
+
+        <div class="mensaje">
+
+
+            <h1>
+                Para ti 💛
+            </h1>
+
+
+            <p>
+                Espero que estas flores te saquen una sonrisa 🌻💛
+            </p>
+
+
+            <button
+                class="boton"
+                onclick="abrirSorpresa()">
+
+                💛 Abrir sorpresa
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+    <!-- =========================
+         GALERÍA
+    ========================= -->
+
+    <section id="galeria">
+
+
+        <img
+            src="1.png"
+            class="foto activa">
+
+
+        <img
+            src="2.png"
+            class="foto">
+
+
+        <img
+            src="3.png"
+            class="foto">
+
+
+        <img
+            src="4.png"
+            class="foto">
+
+
+        <img
+            src="5.png"
+            class="foto">
+
+
+        <img
+            src="6.png"
+            class="foto">
+
+
+    </section>
+
+
+
+
+    <!-- =========================
+         MÚSICA
+    ========================= -->
+
+    <audio
+        id="musica"
+        preload="auto"
+        loop>
+
+
+        <source
+            src="Floricienta - Flores Amarillas (Official Video) [gv63CGCx6vg].mp3"
+            type="audio/mpeg">
+
+
+    </audio>
+
+
+
+
+    <!-- =========================
+         BOTÓN MÚSICA
+    ========================= -->
+
+    <button
+        id="botonMusica"
+        onclick="alternarMusica()">
+
+        🎵 Reproducir música
+
+    </button>
+
+
+
+
+    <!-- =========================
+         BOTÓN FINAL
+    ========================= -->
+
+    <button
+        id="botonSiguiente"
+        onclick="irAlaOtraPagina()">
+
+        🌻 CONTINUAR LA SORPRESA 💛
+
+    </button>
+
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        let fotoActual = 0;
+
+        let intervaloFotos;
+
+        let musicaSonando = false;
+
+        let lluviaActiva = false;
+
+
+
+        /* =========================
+           ABRIR SORPRESA
+        ========================= */
+
+        function abrirSorpresa() {
+
+
+            document.getElementById(
+                "inicio"
+            ).style.display = "none";
+
+
+            document.getElementById(
+                "galeria"
+            ).style.display = "flex";
+
+
+            iniciarMusica();
+
+
+            iniciarFotos();
+
+        }
+
+
+
+        /* =========================
+           MÚSICA
+        ========================= */
+
+        function iniciarMusica() {
+
+
+            const musica =
+                document.getElementById(
+                    "musica"
+                );
+
+
+            musica.volume = 1.0;
+
+
+            musica.play()
+
+
+                .then(function() {
+
+
+                    musicaSonando = true;
+
+
+                    document.getElementById(
+                        "botonMusica"
+                    ).innerHTML =
+                        "⏸️ Pausar música";
+
+
+                })
+
+
+                .catch(function() {
+
+
+                    document.getElementById(
+                        "botonMusica"
+                    ).innerHTML =
+                        "🎵 Reproducir música";
+
+                });
+
+        }
+
+
+
+        /* =========================
+           CONTROL DE MÚSICA
+        ========================= */
+
+        function alternarMusica() {
+
+
+            const musica =
+                document.getElementById(
+                    "musica"
+                );
+
+
+            if (musica.paused) {
+
+
+                musica.play()
+
+
+                    .then(function() {
+
+
+                        musicaSonando = true;
+
+
+                        document.getElementById(
+                            "botonMusica"
+                        ).innerHTML =
+                            "⏸️ Pausar música";
+
+                    });
+
+
+            }
+
+
+            else {
+
+
+                musica.pause();
+
+
+                musicaSonando = false;
+
+
+                document.getElementById(
+                    "botonMusica"
+                ).innerHTML =
+                    "🎵 Reproducir música";
+
+            }
+
+        }
+
+
+
+        /* =========================
+           FOTOS
+        ========================= */
+
+        function iniciarFotos() {
+
+
+            const fotos =
+                document.querySelectorAll(
+                    ".foto"
+                );
+
+
+            intervaloFotos =
+                setInterval(function() {
+
+
+                    fotos[fotoActual]
+                        .classList
+                        .remove("activa");
+
+
+                    fotoActual++;
+
+
+                    if (
+                        fotoActual >=
+                        fotos.length
+                    ) {
+
+
+                        clearInterval(
+                            intervaloFotos
+                        );
+
+
+                        fotoActual =
+                            fotos.length - 1;
+
+
+                        fotos[fotoActual]
+                            .classList
+                            .add("activa");
+
+
+                        /*
+                           ESPERAR
+                           4 SEGUNDOS
+                        */
+
+
+                        setTimeout(
+                            mostrarFinal,
+                            4000
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    fotos[fotoActual]
+                        .classList
+                        .add("activa");
+
+
+                }, 3000);
+
+        }
+
+
+
+        /* =========================
+           FINAL
+        ========================= */
+
+        function mostrarFinal() {
+
+
+            lluviaActiva = true;
+
+
+            /*
+               PRIMERA GRAN
+               EXPLOSIÓN DE FLORES
+            */
+
+
+            for (
+                let i = 0;
+                i < 500;
+                i++
+            ) {
+
+                crearFlor();
+
+            }
+
+
+            /*
+               CONTINUAR CREANDO
+               FLORES PARA QUE
+               NUNCA SE ACABE
+            */
+
+
+            lluviaContinua();
+
+
+            /*
+               MOSTRAR BOTÓN
+            */
+
+
+            document.getElementById(
+                "botonSiguiente"
+            ).style.display =
+                "block";
+
+        }
+
+
+
+        /* =========================
+           LLUVIA CONTINUA
+        ========================= */
+
+        function lluviaContinua() {
+
+
+            if (!lluviaActiva) {
+
+                return;
+            }
+
+
+            /*
+               CREAR NUEVAS FLORES
+               CONSTANTEMENTE
+            */
+
+
+            for (
+                let i = 0;
+                i < 40;
+                i++
+            ) {
+
+                crearFlor();
+
+            }
+
+
+            /*
+               VOLVER A CREAR
+               EN 250 MILISEGUNDOS
+            */
+
+
+            setTimeout(
+                lluviaContinua,
+                250
+            );
+
+        }
+
+
+
+        /* =========================
+           CREAR FLOR
+        ========================= */
+
+        function crearFlor() {
+
+
+            const flor =
+                document.createElement(
+                    "div"
+                );
+
+
+            flor.className =
+                "flor";
+
+
+            const flores = [
+
+                "🌻",
+                "🌻",
+                "🌻",
+                "🌼",
+                "🌼",
+                "💛",
+                "🌻"
+
+            ];
+
+
+            flor.innerHTML =
+                flores[
+                    Math.floor(
+                        Math.random()
+                        *
+                        flores.length
+                    )
+                ];
+
+
+            /*
+               POSICIÓN ALEATORIA
+            */
+
+
+            flor.style.left =
+                Math.random() * 100
+                + "%";
+
+
+            /*
+               TAMAÑO ALEATORIO
+            */
+
+
+            flor.style.fontSize =
+                (
+                    20
+                    +
+                    Math.random() * 45
+                )
+                + "px";
+
+
+            /*
+               VELOCIDAD ALEATORIA
+            */
+
+
+            flor.style.animationDuration =
+                (
+                    2
+                    +
+                    Math.random() * 5
+                )
+                + "s";
+
+
+            /*
+               RETRASO ALEATORIO
+            */
+
+
+            flor.style.animationDelay =
+                (
+                    Math.random() * 1.5
+                )
+                + "s";
+
+
+            document.body.appendChild(
+                flor
+            );
+
+
+            /*
+               ELIMINARLA DESPUÉS
+               PARA NO SATURAR
+               EL COMPUTADOR
+            */
+
+
+            setTimeout(function() {
+
+
+                flor.remove();
+
+
+            }, 9000);
+
+        }
+
+
+
+        /* =========================
+           BOTÓN FINAL
+        ========================= */
+
+        function irAlaOtraPagina() {
+
+
+            window.location.href =
+                "https://cdn.dedicacodes.com/t/galaxia-nebulosa-flores-amarillas/1.0.0/index.html";
+
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>
+```
